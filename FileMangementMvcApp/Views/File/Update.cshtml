@@ -1,0 +1,67 @@
+﻿@using FileManagement.Domain.Entities
+@model FileUpload
+
+@{
+    ViewData["Title"] = "Update File";
+}
+<style>
+.validation-summary-errors ul li {
+    display: none;
+}
+</style>
+
+<div class="text-center">
+    <label class=" text-danger  fs-5" m-auto> @ViewBag.ErrorMessageInvalidExtension</label>
+</div>
+
+@if (Model != null)
+{
+    <div class="card m-auto" style="width: 40rem;" >
+        <div class="card-body">
+            <h5 class="card-title text-center">Update File</h5>
+            <form asp-action="Update" asp-controller="File"
+            enctype="multipart/form-data" method="post"
+            style="margin: 0; display: flex; justify-content: center; align-items: center;">
+                <div asp-validation-summary="All" class="text-danger">
+                </div>
+                <div class="container-fluid">
+                    <input type="hidden" name="id" asp-for="@Model.Id" value="@Model?.Id" />
+
+                    <div class="form-group">
+                        <label for="file">Select file to update</label>
+                        <div class="input-group">
+                            <input id="file" name="file1" type="file" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@Model.Description">Description</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" asp-for="@Model.Description"
+                            aria-label="Text input with checkbox" name="Description" />
+                        </div>
+                    </div>
+
+
+                    <div class="row" >
+                        <div class="col-12">
+                            <span asp-validation-for="@Model.Description" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-group d-inline" >
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+
+                    <div class="form-group d-inline text-white">
+                        <a type="submit" class="btn btn-secondary" asp-action="Index" asp-controller="File">Cancel</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+}

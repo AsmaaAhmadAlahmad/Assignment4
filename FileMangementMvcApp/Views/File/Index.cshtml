@@ -1,0 +1,140 @@
+﻿
+@* هذه الفيو ستحوي على جدول يتم عرض جميع الملفات المخزنة 
+في قاعدة البيانات وكل سطر فيه زر حذف وزر تعديل وزر تنزيل الملف ويحوي هذا الملف في  مكان ما
+زر لرفع الملف وعند الضغط عليه يتم اخذ اليوزر على صفحة  
+الرفع اللي بيختار منها  الزبون الملف اللي بدو يرفعو وبأدخل معلومات بالحقول المطلوبة *@
+@using FileManagement.Domain.Entities
+@model List<FileUpload> 
+
+
+@{
+    ViewData["Title"] = "All files";
+}
+
+
+
+<link href="~/css/FileIndexStyle.css" rel="stylesheet" />
+
+<div class="form-group text-center">
+    <label class="text-center text-dark fs-5"> @ViewBag.Message</label>
+</div>
+
+<div class="form-group text-center">
+    <label class="text-center text-danger fs-5"> @ViewBag.ErrorMessage</label>
+</div>
+ 
+
+<div class="form-group text-center">
+    <label class="text-center text-success fs-5"> @ViewBag.SuccessMessage</label>
+</div>
+
+@* في حال كان المودال فارغ لن يتم اظهار الجدول *@
+         @if (Model.Any())
+        {
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+            <h2 class="text-center text-info mb-5" style="  font-weight: 80;">All Files</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                     <table class="table table-striped ">
+                          <thead class="thead-dark">
+                             <tr>
+                                   <th scope="col" class='text-center'>File name</th>
+                                   <th scope="col" class='text-center'>CreatedBy </th>
+                                   <th scope="col" class='text-center'>CreateAt</th>
+                                   <th scope="col" class='text-center'> Description</th>
+                                   <th scope="col" class='text-center'>  </th>
+                                   <th scope="col" class='text-center'>  </th>
+                                   <th scope="col" class='text-center'>  </th>
+                             </tr>
+                          </thead>
+
+                         <tbody>
+               
+                            @foreach (var file in Model)
+                            {
+                                <tr>
+                                    <td>@file.Name</td>
+                                    <td>@file.CreatedBy</td>
+                                    <td>@file.CreatedAt</td>
+                                    <td>@file.Description</td>
+                                    <td>
+                                        <form asp-action="Delete" asp-controller="File" asp-route-id="@file.Id" method="post">
+                                            <button type="submit" value="Delete" class="btn btn-danger" />
+                                            Delete
+                                            <button />
+                                        </form>
+                                    </td>
+
+                                    <td>
+                                        <a asp-action="Download" asp-controller="File" asp-route-fileId="@file.Id"
+                                           class="btn btn-primary">
+                                            Download
+                                        </a>
+                                    </td>
+
+                                    <td>
+                                        <a class="btn btn-primary" asp-action="Update" , asp-controller="File" asp-route-id="@file.Id">
+                                            Update
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                
+
+                        </tbody>
+                  </table>
+                </div>
+            </div>
+        }
+
+        else
+        {
+              <div class="row">
+                  <div class="col-12 d-flex justify-content-center mb-5">
+                      <h2>No files available.</h2>
+                  </div>
+              </div>
+
+        }
+  
+        @* انشاء سطر لزر الرفع *@
+<div class="row">
+    <div class="col-12 d-flex justify-content-center mt-4">
+        <a class="btn btn-primary " asp-action="Upload" asp-controller="File">
+            Upload file
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

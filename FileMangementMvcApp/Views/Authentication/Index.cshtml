@@ -1,0 +1,65 @@
+﻿@model LoginModel
+@{
+    Layout ="_Layout";
+
+    ViewData["Title"] = "Login page";
+}
+
+<link href="~/css/loginstyle.css" rel="stylesheet" />
+
+
+<h2 >Login page</h2>
+
+<div class="login-form">
+    <form asp-action="Login" asp-controller="Authentication" class="" method="post">
+            <div asp-validation-summary="All" class="text-danger">
+            </div>
+
+            <div class="form-group text-center " style="margin-right: 70px">
+                 <label class="text-center text-danger fs-5 ml-2"> 
+                     @ViewBag.NotificationWrongPasswordOfUsername
+                 </label>
+            </div> 
+
+            <div class="form-group text-center " style="margin-right: 70px">
+               <label class="text-center text-success fs-5 ml-2 mb-3">
+                  @ViewBag.SuccessCreatedAccountMessage
+               </label>
+            </div>
+
+            <i class="fa-solid fa-circle-user" style="color: #044141;top:-30px;position:relative"></i>
+        
+            <div class="form-group">
+                <input type="text"
+                       class="form-control rounded-left" asp-for="@Model.UserName"
+                       name="UserName" placeholder="User name" />
+                <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+               <input type="password"
+                      class="form-control rounded-left"
+                      name="Password"
+                      placeholder="Password" asp-for="@Model.Password"/>
+               <span asp-validation-for="@Model.Password" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <a href="/Authentication/Register" style="font-size:17px;"> if you don't have account register here </a>
+            </div>
+          
+            <div class="form-group ">
+                <button type="submit"
+                        class="form-control btn btn-primary rounded" style="margin-top:5px"
+                        name="submit">
+                    Login
+                </button>
+            </div>
+         
+    </form>
+</div>
+
+
+
+

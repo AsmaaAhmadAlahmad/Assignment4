@@ -1,0 +1,112 @@
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300&display=swap');
+
+@media (max-width: 400px) {
+    .login-form .form-group {
+        width: 270px;
+    }
+
+        .login-form .form-group button {
+            width: 250px;
+        }
+
+        .login-form .form-group input {
+            width: 250px;
+        }
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: rgba(4,65,65,0.35);
+    font-family: 'Cairo', sans-serif;
+}
+
+.login-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /* أو space-evenly */
+    border-radius: 7px;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.219);
+    width: 450px;
+    margin: 30px auto;
+    background-color: white;
+    min-height: 450px;
+    padding-left: 65px;
+}
+
+
+    .login-form i {
+        font-size: 90px;
+        margin-left: 106px;
+        margin-bottom: 30px;
+        color: #044141;
+    }
+
+.validation-summary-errors ul li {
+    display: none;
+}
+
+
+.login-form .form-group input {
+    margin-right: 55px;
+    border-radius: 5px;
+    height: 45px;
+    font-size: 20px;
+    width: 315px;
+    background-color: rgba(4,65,65,0.35);
+    border: none;
+    padding: 5px;
+    margin-top: 12px;
+    margin-bottom: 37px;
+}
+
+.form-group a {
+    margin-left: 28px;
+}
+
+.login-form  label {
+    margin-left: 28px;
+}
+.login-form .form-group button {
+    border-radius: 5px;
+    margin-right: 55px;
+    width: 318px;
+    background-color: #044141;
+    border: none;
+    color: white;
+    height: 55px;
+    font-size: 20px;
+   margin-bottom: -90px;
+    cursor: pointer;
+}
+
+
+.login-form button:hover {
+    background-color: #052121;
+}
+
+
+
+::placeholder {
+    padding-left: 10px;
+    font-size: 17px;
+    color: rgba(0, 0, 0, 0.384);
+}
+
+
+h2 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+.close:hover {
+    outline: none;
+}

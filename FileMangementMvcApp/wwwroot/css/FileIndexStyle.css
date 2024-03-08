@@ -1,0 +1,49 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+    
+}
+
+
+.navbar .btn:hover {
+    font-size: 22px;
+    border-radius: 5px;
+    height: 50px;
+    width: 140px;
+    text-align: center;
+}
+
+
+table tr td button {
+    text-decoration: none;
+    font-size: 18px;
+    text-align: center;
+    background: #ebeef1;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 300;
+    transition: 1s all 0s ease-in-out;
+    margin-left:3px;
+}
+
+
+
+table tr td .button:hover {
+     border: none;
+     color: white;
+     background-color: black;
+}
+
+table tr td {
+    text-align: center;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+}
+
+
